@@ -134,7 +134,9 @@ gradlew build
     "path": "^0.12.7",
     "style-loader": "^0.18.2",
     "url-loader": "^0.5.9",
-    "webpack": "^3.5.0"
+    "webpack": "^3.5.0",
+    "bootstrap": "^4.6.1",
+    "react-bootstrap": "^2.1.1"
   },
   "scripts": {
     "start": "webpack-dev-server",
@@ -150,7 +152,9 @@ gradlew build
     "axios": "^0.25.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "rgbcolor": "^1.0.1"
+    "rgbcolor": "^1.0.1",
+    "bootstrap": "^4.6.1",
+    "react-bootstrap": "^2.1.1"
   }
 }
 ```
