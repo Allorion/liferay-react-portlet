@@ -1,0 +1,36 @@
+{
+  "name": "react-front",
+  "version": "1.0.0",
+  "description": "MVC Portlet with React JS and Webpack",
+  "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.4",
+    "file-loader": "^0.11.2",
+    "html-webpack-plugin": "^2.30.1",
+    "liferay-npm-bundler": "^2.13.3",
+    "path": "^0.12.7",
+    "style-loader": "^0.18.2",
+    "url-loader": "^0.5.9",
+    "webpack": "^3.5.0"
+  },
+  "scripts": {
+    "start": "webpack-dev-server",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Allorion/liferay-react-portlet.git"
+  },
+  "author": "allorion.ru",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.25.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "rgbcolor": "^1.0.1"
+  }
+}

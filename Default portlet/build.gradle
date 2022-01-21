@@ -1,0 +1,60 @@
+buildscript {
+    repositories {
+        maven {
+            url "https://cdn.lfrs.sl/repository.liferay.com/nexus/content/groups/public"
+        }
+    }
+
+    dependencies {
+        classpath group: "com.liferay", name: "com.liferay.gradle.plugins.css.builder", version: "latest.release"
+        classpath group: "com.liferay", name: "com.liferay.gradle.plugins.node", version: "latest.release"
+    }
+}
+
+apply plugin: "com.liferay.css.builder"
+apply plugin: "war"
+apply plugin: "com.liferay.node"
+
+dependencies {
+    compileOnly group: "com.liferay.portal", name: "com.liferay.portal.kernel", version: "latest.release"
+    compileOnly group: "javax.portlet", name: "portlet-api", version: "latest.release"
+    compileOnly group: "javax.servlet", name: "javax.servlet-api", version: "latest.release"
+    cssBuilder group: "com.liferay", name: "com.liferay.css.builder", version: "latest.release"
+    compileOnly group: "org.osgi", name: "org.osgi.service.component.annotations", version: "latest.release"
+    compileOnly group: "com.liferay.portal", name: "com.liferay.util.taglib", version: "latest.release"
+    compileOnly group: "jstl", name: "jstl", version: "latest.release"
+}
+
+repositories {
+    mavenLocal()
+    maven {
+        url "https://cdn.lfrs.sl/repository.liferay.com/nexus/content/groups/public"
+    }
+}
+
+war {
+    dependsOn buildCSS
+    exclude "**/*.scss"
+
+    filesMatching("**/.sass-cache/") {
+        it.path = it.path.replace(".sass-cache/", "")
+    }
+
+    includeEmptyDirs = false
+}
+
+task deleteIndexFile(type: Delete) {
+    delete "${rootDir}/src/main/webapp/js/index.html"
+}
+
+task cleanJsDir(type: Delete) {
+    delete "${rootDir}/src/main/webapp/js/"
+}
+
+war {
+    dependsOn deleteIndexFile
+}
+
+clean {
+    dependsOn cleanJsDir
+}
