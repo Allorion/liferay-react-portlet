@@ -5,15 +5,15 @@
 Для этого переходим на сайт  [Liferay Portal IDE](https://sourceforge.net/projects/lportal/files/Liferay%20IDE/ "Liferay Portal IDE") (либо скачиваем из архива [Liferay Portal IDE](https://sourceforge.net/projects/lportal/files/Liferay%20IDE/ "GIT ZIP") может быть уже устаревшей версией), выбираем файл подходящий под вашу операционную систему и скачиваем его. 
 Перейдем к установке (Windows):
 1. Выбираем установленную версию Java JDK;
-![](//placehold.it/200x100 "Версия Java JDK")
+![](Manual/1readme.png "Версия Java JDK")
 2. Устанавливаем желаемое расположения каталога с коммандером (запоминаем путь);
-![](//placehold.it/200x100 "Выбор каталога")
+![](Manual/2readme.png "Выбор каталога")
 3. Ставим версию Portable Community;
-![](//placehold.it/200x100 "Выбор пакета")
+![](Manual/3readme.png "Выбор пакета")
 4. Далее выбираем версию Liferay;
-![](//placehold.it/200x100 "Версия IDE")
+![](Manual/4readme.png "Версия IDE")
 5. Если есть прокси можем их установить.
-![](//placehold.it/200x100 "Прокси")
+![](Manual/5readme.png "Прокси")
 
 ### 2. Создание каркаса портлета
 Переходим в директорию, куда установили компонент Liferay. Далее перемещаемся в папку `modules`. Именно здесь мы будем создавать новые портлеты. Теперь запускаем `cmd` и вписываем следующие команды:
