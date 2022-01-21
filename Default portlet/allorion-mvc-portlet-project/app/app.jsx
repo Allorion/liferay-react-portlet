@@ -1,18 +1,14 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 
-class App {
-    constructor() {
-        this.formTemplate = `
-        <div>
-            <h1 class="caption">allorion.ru</h1>
-        </div>
-        `
-    }
 
-    init() {
-        document.getElementById('input').innerHTML = this.formTemplate;
-    }
+function Welcome(props) {
+    return <h1>Привет, {props.name}</h1>;
 }
 
-const app = new App();
-app.init();
+const element = <Welcome name="Алиса" />;
+
+ReactDOM.render(
+    element,
+    document.getElementById('input')
+);
