@@ -24,8 +24,7 @@ blade create -t war-mvc-portlet -v 7.0 -p ru.allorion.portlet -c AllorionMvcPort
 - `blade create` - внутренняя команда Liferay для создания портлетов;
 - `-t war-mvc-portlet` - выбор желаемого шаблона портлета;
 - `-p ru.allorion.portlet` - путь до исполняемых файлов Java;
-- `-c AllorionMvcPortlet` - название отображаемого портлета;
-- `my-mvc-portlet-project` - название папки портлета.
+- `my-mvc-portlet-project` - название папки портлета, а т.ж название отображаемого портлета в списке портлетов Liferay.
 
 > Обращаю внимание, для корректной работы портлета на Liferay 7.0 требуется использовать именно war архив с портлетом и именно mvc. Иначе портлет попросту не будет работать.
 
