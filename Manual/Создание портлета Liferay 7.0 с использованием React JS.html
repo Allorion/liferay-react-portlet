@@ -1,8 +1,8 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><title>Создание портлета Liferay 7.0 с использованием React JS</title><style></style></head><body id="preview">
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Readme</title><style></style></head><body id="preview">
 <h1 class="code-line" data-line-start=0 data-line-end=1><a id="__Liferay_70___React_JS_0"></a>Создание портлета Liferay 7.0 с использованием React JS</h1>
 <h3 class="code-line" data-line-start=2 data-line-end=3><a id="1___Liferay_2"></a>1. Установка компонентов Liferay</h3>
 <p class="has-line-data" data-line-start="3" data-line-end="6">Для создания правильного каркаса портлета требуется установить специальный компонент от Liferay.<br>
-Для этого переходим на сайт <a href="https://sourceforge.net/projects/lportal/files/Liferay%20IDE/" title="Liferay Portal IDE">Liferay Portal IDE</a> (либо скачиваем из архива <a href="https://sourceforge.net/projects/lportal/files/Liferay%20IDE/" title="GIT ZIP">Liferay Portal IDE</a> может быть уже устаревшей версией), выбираем файл подходящий под вашу операционную систему и скачиваем его.<br>
+Для этого переходим на сайт <a href="https://sourceforge.net/projects/lportal/files/Liferay%20IDE/" title="Liferay Portal IDE">Liferay Portal IDE</a> (либо скачиваем из архива со всеми требуемыми программами из архива релиза <a href="https://github.com/Allorion/liferay-react-portlet/releases" title="GIT ZIP">Dop.Soft.zip</a> может быть уже устаревшей версией), выбираем файл подходящий под вашу операционную систему и скачиваем его.<br>
 Перейдем к установке (Windows):</p>
 <ol>
 <li class="has-line-data" data-line-start="6" data-line-end="8">Выбираем установленную версию Java JDK;<br>
@@ -105,7 +105,7 @@ clean {
 <p class="has-line-data" data-line-start="113" data-line-end="114">Если проект собрался переходим к следующему шагу.</p>
 <h5 class="code-line" data-line-start=115 data-line-end=116><a id="33___React_Js_______115"></a>3.3. Добавляем зависимости React Js, а т.ж. подули для его компиляции</h5>
 <p class="has-line-data" data-line-start="116" data-line-end="117">Создадим в корневом каталоге файл <code>package.json</code>, добавляем следующий код:</p>
-<pre><code class="has-line-data" data-line-start="119" data-line-end="156" class="language-json">{
+<pre><code class="has-line-data" data-line-start="119" data-line-end="161" class="language-json">{
   "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"react-front"</span></span>,
   "<span class="hljs-attribute">version</span>": <span class="hljs-value"><span class="hljs-string">"1.0.0"</span></span>,
   "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"MVC Portlet with React JS and Webpack"</span></span>,
@@ -115,6 +115,7 @@ clean {
     "<span class="hljs-attribute">babel-polyfill</span>": <span class="hljs-value"><span class="hljs-string">"^6.23.0"</span></span>,
     "<span class="hljs-attribute">babel-preset-es2015</span>": <span class="hljs-value"><span class="hljs-string">"^6.24.1"</span></span>,
     "<span class="hljs-attribute">babel-preset-react</span>": <span class="hljs-value"><span class="hljs-string">"^6.24.1"</span></span>,
+    "<span class="hljs-attribute">babel-preset-stage-0</span>": <span class="hljs-value"><span class="hljs-string">"^6.24.1"</span></span>,
     "<span class="hljs-attribute">css-loader</span>": <span class="hljs-value"><span class="hljs-string">"^0.28.4"</span></span>,
     "<span class="hljs-attribute">file-loader</span>": <span class="hljs-value"><span class="hljs-string">"^0.11.2"</span></span>,
     "<span class="hljs-attribute">html-webpack-plugin</span>": <span class="hljs-value"><span class="hljs-string">"^2.30.1"</span></span>,
@@ -122,7 +123,9 @@ clean {
     "<span class="hljs-attribute">path</span>": <span class="hljs-value"><span class="hljs-string">"^0.12.7"</span></span>,
     "<span class="hljs-attribute">style-loader</span>": <span class="hljs-value"><span class="hljs-string">"^0.18.2"</span></span>,
     "<span class="hljs-attribute">url-loader</span>": <span class="hljs-value"><span class="hljs-string">"^0.5.9"</span></span>,
-    "<span class="hljs-attribute">webpack</span>": <span class="hljs-value"><span class="hljs-string">"^3.5.0"</span>
+    "<span class="hljs-attribute">webpack</span>": <span class="hljs-value"><span class="hljs-string">"^3.5.0"</span></span>,
+    "<span class="hljs-attribute">bootstrap</span>": <span class="hljs-value"><span class="hljs-string">"^4.6.1"</span></span>,
+    "<span class="hljs-attribute">react-bootstrap</span>": <span class="hljs-value"><span class="hljs-string">"^2.1.1"</span>
   </span>}</span>,
   "<span class="hljs-attribute">scripts</span>": <span class="hljs-value">{
     "<span class="hljs-attribute">start</span>": <span class="hljs-value"><span class="hljs-string">"webpack-dev-server"</span></span>,
@@ -138,14 +141,16 @@ clean {
     "<span class="hljs-attribute">axios</span>": <span class="hljs-value"><span class="hljs-string">"^0.25.0"</span></span>,
     "<span class="hljs-attribute">react</span>": <span class="hljs-value"><span class="hljs-string">"^17.0.2"</span></span>,
     "<span class="hljs-attribute">react-dom</span>": <span class="hljs-value"><span class="hljs-string">"^17.0.2"</span></span>,
-    "<span class="hljs-attribute">rgbcolor</span>": <span class="hljs-value"><span class="hljs-string">"^1.0.1"</span>
+    "<span class="hljs-attribute">rgbcolor</span>": <span class="hljs-value"><span class="hljs-string">"^1.0.1"</span></span>,
+    "<span class="hljs-attribute">bootstrap</span>": <span class="hljs-value"><span class="hljs-string">"^4.6.1"</span></span>,
+    "<span class="hljs-attribute">react-bootstrap</span>": <span class="hljs-value"><span class="hljs-string">"^2.1.1"</span>
   </span>}
 </span>}
 </code></pre>
-<p class="has-line-data" data-line-start="157" data-line-end="158">Устанавливаем модули с помощью <code>npm install</code></p>
-<h5 class="code-line" data-line-start=159 data-line-end=160><a id="34_____159"></a>3.4. Создаем автоматическую компоновку проекта</h5>
-<p class="has-line-data" data-line-start="161" data-line-end="162">Создадим в корневом каталоге проект новый файл <code>webpack.config.js</code> и вставляем следующий код:</p>
-<pre><code class="has-line-data" data-line-start="164" data-line-end="225" class="language-js"><span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">'path'</span>);
+<p class="has-line-data" data-line-start="162" data-line-end="163">Устанавливаем модули с помощью <code>npm install</code></p>
+<h5 class="code-line" data-line-start=164 data-line-end=165><a id="34_____164"></a>3.4. Создаем автоматическую компоновку проекта</h5>
+<p class="has-line-data" data-line-start="166" data-line-end="167">Создадим в корневом каталоге проект новый файл <code>webpack.config.js</code> и вставляем следующий код:</p>
+<pre><code class="has-line-data" data-line-start="169" data-line-end="233" class="language-js"><span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">'path'</span>);
 <span class="hljs-keyword">const</span> HtmlWebpackPlugin = <span class="hljs-built_in">require</span>(<span class="hljs-string">'html-webpack-plugin'</span>);
 <span class="hljs-keyword">const</span> SRC = path.resolve(__dirname, <span class="hljs-string">'app'</span>);
 <span class="hljs-keyword">const</span> DEST = path.resolve(__dirname, <span class="hljs-string">'src/main/webapp/js'</span>);
@@ -173,7 +178,10 @@ clean {
         use: [<span class="hljs-string">'babel-loader'</span>],
         exclude: path.resolve(__dirname, <span class="hljs-string">"node_modules"</span>)
       },
-      {test: <span class="hljs-regexp">/\.css$/</span>, use: [<span class="hljs-string">'style-loader!css-loader'</span>]},
+      {
+        test: <span class="hljs-regexp">/\.(css|scss)$/</span>,
+        loader: <span class="hljs-string">"style-loader!css-loader"</span>
+      },
       {test: <span class="hljs-regexp">/\.(s[ca]ss)$/</span>,
         use: [<span class="hljs-string">'style-loader'</span>, <span class="hljs-string">'css-loader'</span>, <span class="hljs-string">'sass-loader'</span>, {
           loader: <span class="hljs-string">"postcss-loader"</span>,
@@ -206,15 +214,15 @@ clean {
   ]
 };
 </code></pre>
-<p class="has-line-data" data-line-start="226" data-line-end="227">Дабы не было ошибок при обработке синтаксиса реакта добавим файл <code>.babelrc</code> в корневую директорию. Добавим в него следующий код:</p>
-<pre><code class="has-line-data" data-line-start="229" data-line-end="233">{
+<p class="has-line-data" data-line-start="234" data-line-end="235">Дабы не было ошибок при обработке синтаксиса реакта добавим файл <code>.babelrc</code> в корневую директорию. Добавим в него следующий код:</p>
+<pre><code class="has-line-data" data-line-start="237" data-line-end="241">{
   presets: ['es2015', 'stage-0', 'react']
 }
 </code></pre>
-<h5 class="code-line" data-line-start=234 data-line-end=235><a id="35____React_JS_234"></a>3.5. Добавление простейшего кода React JS</h5>
-<p class="has-line-data" data-line-start="236" data-line-end="237">В корне проекта создаем папку app. В нее помещаем один файл <code>index.html</code> и файл <code>app.jsx</code> (название файла выбираете любое, только не забудьте поменять в <code>webpack.config.js</code> в поле <code>NAME_PORTLET</code>)</p>
-<p class="has-line-data" data-line-start="238" data-line-end="239"><code>index.html</code></p>
-<pre><code class="has-line-data" data-line-start="241" data-line-end="253" class="language-html"><span class="hljs-doctype">&lt;!DOCTYPE html&gt;</span>
+<h5 class="code-line" data-line-start=242 data-line-end=243><a id="35____React_JS_242"></a>3.5. Добавление простейшего кода React JS</h5>
+<p class="has-line-data" data-line-start="244" data-line-end="245">В корне проекта создаем папку app. В нее помещаем один файл <code>index.html</code> и файл <code>app.jsx</code> (название файла выбираете любое, только не забудьте поменять в <code>webpack.config.js</code> в поле <code>NAME_PORTLET</code>)</p>
+<p class="has-line-data" data-line-start="246" data-line-end="247"><code>index.html</code></p>
+<pre><code class="has-line-data" data-line-start="249" data-line-end="261" class="language-html"><span class="hljs-doctype">&lt;!DOCTYPE html&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-title">html</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-title">head</span> <span class="hljs-attribute">lang</span>=<span class="hljs-value">"en"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-title">meta</span> <span class="hljs-attribute">charset</span>=<span class="hljs-value">"UTF-8"</span>&gt;</span>
@@ -226,9 +234,9 @@ clean {
 <span class="hljs-tag">&lt;/<span class="hljs-title">body</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-title">html</span>&gt;</span>
 </code></pre>
-<p class="has-line-data" data-line-start="254" data-line-end="255">** Блок <code>div</code> с <code>id=input</code> является маяком для Liferay именно по этому id он будет видеть портлет **</p>
-<p class="has-line-data" data-line-start="256" data-line-end="257">Теперь добавим файл <code>app.jsx</code></p>
-<pre><code class="has-line-data" data-line-start="259" data-line-end="274" class="language-jsx">import React from 'react';
+<p class="has-line-data" data-line-start="262" data-line-end="263">** Блок <code>div</code> с <code>id=input</code> является маяком для Liferay именно по этому id он будет видеть портлет **</p>
+<p class="has-line-data" data-line-start="264" data-line-end="265">Теперь добавим файл <code>app.jsx</code></p>
+<pre><code class="has-line-data" data-line-start="267" data-line-end="282" class="language-jsx">import React from 'react';
 import ReactDOM from 'react-dom';
 
 
@@ -243,20 +251,20 @@ ReactDOM.render(
     document.getElementById('input')
 );
 </code></pre>
-<p class="has-line-data" data-line-start="275" data-line-end="276">Для примера был выбран элементарный скрипт написанный на React JS. Не забудьте добавить файл <code>.babelrc</code> иначе портлет собираться не будет.</p>
-<h5 class="code-line" data-line-start=277 data-line-end=278><a id="36____React_JS_277"></a>3.6. Настройка вывода шаблонов React JS</h5>
-<p class="has-line-data" data-line-start="279" data-line-end="281">После того как мы добавили React JS нам следует объявить об этом Liferay. Открываем следующий файл <code>\src\main\webapp\view.jsp</code> .<br>
+<p class="has-line-data" data-line-start="283" data-line-end="284">Для примера был выбран элементарный скрипт написанный на React JS. Не забудьте добавить файл <code>.babelrc</code> иначе портлет собираться не будет.</p>
+<h5 class="code-line" data-line-start=285 data-line-end=286><a id="36____React_JS_285"></a>3.6. Настройка вывода шаблонов React JS</h5>
+<p class="has-line-data" data-line-start="287" data-line-end="289">После того как мы добавили React JS нам следует объявить об этом Liferay. Открываем следующий файл <code>\src\main\webapp\view.jsp</code> .<br>
 Здесь мы указываем <code>div</code> с id <code>input</code>, а т.ж. наименование скрипта React JS (данное имя указывается в <code>webpack.config.js</code> в данной строке <code>filename: NAME_PORTLET + '.js'</code>. Обязательно указываем полный путь. Т.к. в том же <code>webpack.config.js</code> в строке <code>const DEST = path.resolve(__dirname, 'src/main/webapp/js');</code> мы указали папку <code>js</code>, то и в пути до скрипта мы ее указываем <code>src=&quot;&lt;%=request.getContextPath()%&gt;/js/app.js&quot;</code>)</p>
-<pre><code class="has-line-data" data-line-start="282" data-line-end="289" class="language-jsp">&lt;script&gt;
+<pre><code class="has-line-data" data-line-start="290" data-line-end="297" class="language-jsp">&lt;script&gt;
     var allorionMvcPortletProject = {
         portletNamespace : '&lt;portlet:namespace /&gt;',
         downloadFullURL: '${downloadURL}'
     };
 &lt;/script&gt;
 </code></pre>
-<p class="has-line-data" data-line-start="289" data-line-end="290">В данном пункте меняем название переменно на название нашего портлета.</p>
-<p class="has-line-data" data-line-start="291" data-line-end="292">Пример полного кода файла</p>
-<pre><code class="has-line-data" data-line-start="294" data-line-end="311" class="language-jsp">&lt;%@ include file="init.jsp" %&gt;
+<p class="has-line-data" data-line-start="297" data-line-end="298">В данном пункте меняем название переменно на название нашего портлета.</p>
+<p class="has-line-data" data-line-start="299" data-line-end="300">Пример полного кода файла</p>
+<pre><code class="has-line-data" data-line-start="302" data-line-end="319" class="language-jsp">&lt;%@ include file="init.jsp" %&gt;
 
 &lt;div id="input"&gt;&lt;/div&gt;
 &lt;script src="&lt;%=request.getContextPath()%&gt;/js/app.js"&gt;&lt;/script&gt;
@@ -273,25 +281,26 @@ ReactDOM.render(
     };
 &lt;/script&gt;
 </code></pre>
-<h3 class="code-line" data-line-start=312 data-line-end=313><a id="4_Deploy_portlet_312"></a>4. Deploy portlet</h3>
-<p class="has-line-data" data-line-start="314" data-line-end="315">Все настройки портлета выполнены. Осталось его только собрать. Для этого используем специальную команду. Открываем корневую папку проекта и вызываем в ней консоль. Далее прописываем:</p>
-<pre><code class="has-line-data" data-line-start="316" data-line-end="318" class="language-ssh">gradlew clean build
+<h3 class="code-line" data-line-start=320 data-line-end=321><a id="4_Deploy_portlet_320"></a>4. Deploy portlet</h3>
+<p class="has-line-data" data-line-start="322" data-line-end="323">Все настройки портлета выполнены. Осталось его только собрать. Для этого используем специальную команду. Открываем корневую папку проекта и вызываем в ней консоль. Далее прописываем:</p>
+<pre><code class="has-line-data" data-line-start="324" data-line-end="326" class="language-ssh">gradlew clean build
 </code></pre>
-<p class="has-line-data" data-line-start="318" data-line-end="319">Gradle собирает проект в <code>war</code> файл. Теперь остается лишь запушить портлет на сервер Liferay.</p>
-<h3 class="code-line" data-line-start=320 data-line-end=321><a id="5____320"></a>5. Немного о главном</h3>
+<p class="has-line-data" data-line-start="326" data-line-end="327">Gradle собирает проект в <code>war</code> файл. Теперь остается лишь запушить портлет на сервер Liferay.</p>
+<h3 class="code-line" data-line-start=328 data-line-end=329><a id="5____328"></a>5. Немного о главном</h3>
 <ul>
-<li class="has-line-data" data-line-start="322" data-line-end="323">Используя React JS мы используем его модули. В Liferay они не установлены, поэтому их следует добавлять вручную в файле <code>package.json</code>. Они прописываются в разделе <code>dependencies</code>, в примере данный раздел находится в самом низу;</li>
-<li class="has-line-data" data-line-start="323" data-line-end="324">Не забывайте про файл <code>.babelrc</code> он обязателен для сборки портлета с React JS;</li>
-<li class="has-line-data" data-line-start="324" data-line-end="325">Все css скрипты следует помещать в основной файл <code>\src\main\webapp\css\main.scss</code>, именно он при сборке портлета отвечает за стили.</li>
+<li class="has-line-data" data-line-start="330" data-line-end="331">Используя React JS мы используем его модули. В Liferay они не установлены, поэтому их следует добавлять вручную в файле <code>package.json</code>. Они прописываются в разделе <code>dependencies</code>, в примере данный раздел находится в самом низу;</li>
+<li class="has-line-data" data-line-start="331" data-line-end="332">Не забывайте про файл <code>.babelrc</code> он обязателен для сборки портлета с React JS;</li>
+<li class="has-line-data" data-line-start="332" data-line-end="333">Настройки позволяют собирать стили прописанные в <code>app.jsx</code>. Внимание данные стили будут распространяться и на другие портлеты. Чтобы это избежать можно добавлять стили в файл <code>\src\main\webapp\css\main.scss</code>;</li>
+<li class="has-line-data" data-line-start="333" data-line-end="334">Для использования Bootstrap 4 добавляем в <code>app.jsx</code> импорт <code>import 'bootstrap/dist/css/bootstrap.min.css';</code>.</li>
 </ul>
 <hr>
-<h6 class="code-line" data-line-start=326 data-line-end=327><a id="_326"></a>Ссылки:</h6>
+<h6 class="code-line" data-line-start=335 data-line-end=336><a id="_335"></a>Ссылки:</h6>
 <ul>
-<li class="has-line-data" data-line-start="328" data-line-end="329"><a href="https://github.com/Allorion">Git разработчика</a></li>
-<li class="has-line-data" data-line-start="329" data-line-end="330"><a href="https://allorion.ru">Сайт разработчика</a></li>
-<li class="has-line-data" data-line-start="330" data-line-end="331"><a href="https://sourceforge.net/projects/lportal/files/Liferay%20IDE/">Liferay Portal IDE</a></li>
-<li class="has-line-data" data-line-start="331" data-line-end="332"><a href="https://www.liferay.com/">Liferay</a></li>
-<li class="has-line-data" data-line-start="332" data-line-end="334"><a href="https://reactjs.org/">React JS</a></li>
+<li class="has-line-data" data-line-start="337" data-line-end="338"><a href="https://github.com/Allorion">Git разработчика</a></li>
+<li class="has-line-data" data-line-start="338" data-line-end="339"><a href="https://allorion.ru">Сайт разработчика</a></li>
+<li class="has-line-data" data-line-start="339" data-line-end="340"><a href="https://sourceforge.net/projects/lportal/files/Liferay%20IDE/">Liferay Portal IDE</a></li>
+<li class="has-line-data" data-line-start="340" data-line-end="341"><a href="https://www.liferay.com/">Liferay</a></li>
+<li class="has-line-data" data-line-start="341" data-line-end="343"><a href="https://reactjs.org/">React JS</a></li>
 </ul>
-<p class="has-line-data" data-line-start="334" data-line-end="335">@by Allori 2021</p>
+<p class="has-line-data" data-line-start="343" data-line-end="344">@by Allori 2021</p>
 </body></html>

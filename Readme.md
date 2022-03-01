@@ -2,7 +2,7 @@
 
 ### 1. Установка компонентов Liferay
 Для создания правильного каркаса портлета требуется установить специальный компонент от Liferay. 
-Для этого переходим на сайт  [Liferay Portal IDE](https://sourceforge.net/projects/lportal/files/Liferay%20IDE/ "Liferay Portal IDE") (либо скачиваем из архива [Liferay Portal IDE](https://sourceforge.net/projects/lportal/files/Liferay%20IDE/ "GIT ZIP") может быть уже устаревшей версией), выбираем файл подходящий под вашу операционную систему и скачиваем его. 
+Для этого переходим на сайт  [Liferay Portal IDE](https://sourceforge.net/projects/lportal/files/Liferay%20IDE/ "Liferay Portal IDE") (либо скачиваем из архива со всеми требуемыми программами из архива релиза [Dop.Soft.zip](https://github.com/Allorion/liferay-react-portlet/releases "GIT ZIP") может быть уже устаревшей версией), выбираем файл подходящий под вашу операционную систему и скачиваем его. 
 Перейдем к установке (Windows):
 1. Выбираем установленную версию Java JDK;  
 ![](Manual/1readme.png "Версия Java JDK")
@@ -127,6 +127,7 @@ gradlew build
     "babel-polyfill": "^6.23.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
     "css-loader": "^0.28.4",
     "file-loader": "^0.11.2",
     "html-webpack-plugin": "^2.30.1",
