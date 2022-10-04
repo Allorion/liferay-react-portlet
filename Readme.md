@@ -1,19 +1,19 @@
 # Создание портлета Liferay 7.0 с использованием React JS Версия 2.0
 
 ### 1. Установка компонентов Liferay
-Для создания правильного каркаса портлета требуется установить специальный компонент от Liferay. 
-Для этого переходим на сайт  [Liferay Portal IDE](https://sourceforge.net/projects/lportal/files/Liferay%20IDE/ "Liferay Portal IDE") (либо скачиваем из архива со всеми требуемыми программами из архива релиза [Dop.Soft.zip](https://github.com/Allorion/liferay-react-portlet/releases "GIT ZIP") может быть уже устаревшей версией), выбираем файл подходящий под вашу операционную систему и скачиваем его. 
+Для создания правильного каркаса портлета требуется установить специальный компонент от Liferay.
+Для этого переходим на сайт  [Liferay Portal IDE](https://sourceforge.net/projects/lportal/files/Liferay%20IDE/ "Liferay Portal IDE") (либо скачиваем из архива со всеми требуемыми программами из архива релиза [Dop.Soft.zip](https://github.com/Allorion/liferay-react-portlet/releases "GIT ZIP") может быть уже устаревшей версией), выбираем файл подходящий под вашу операционную систему и скачиваем его.
 Перейдем к установке (Windows):
 1. Выбираем установленную версию Java JDK;  
-![](Manual/1readme.png "Версия Java JDK")
+   ![](Manual/1readme.png "Версия Java JDK")
 2. Устанавливаем желаемое расположения каталога с коммандером (запоминаем путь);  
-![](Manual/2readme.png "Выбор каталога")
+   ![](Manual/2readme.png "Выбор каталога")
 3. Ставим версию Portable Community;  
-![](Manual/3readme.png "Выбор пакета")
+   ![](Manual/3readme.png "Выбор пакета")
 4. Далее выбираем версию Liferay;  
-![](Manual/4readme.png "Версия IDE")
+   ![](Manual/4readme.png "Версия IDE")
 5. Если есть прокси можем их установить.  
-![](Manual/5readme.png "Прокси")
+   ![](Manual/5readme.png "Прокси")
 
 Сразу добавляем папку `liferay-workspace` в директорию Path. Если этого не сделать, то будет появляться ошибка gradlew.
 
@@ -22,7 +22,7 @@
 ```sh
 blade create -t war-mvc-portlet -v 7.0 -p ru.allorion.portlet -c AllorionMvcPortlet allorion-mvc-portlet-project
 ```
-где 
+где
 - `blade create` - внутренняя команда Liferay для создания портлетов;
 - `-t war-mvc-portlet` - выбор желаемого шаблона портлета;
 - `-p ru.allorion.portlet` - путь до исполняемых файлов Java;
@@ -42,7 +42,7 @@ gradlew init
 
 Далее выбираем следующие настройки `basic`, `Groovy`, `дефолтное название проекта`.
 
-##### 3.2. Обновление зависимостей Liferay 
+##### 3.2. Обновление зависимостей Liferay
 
 Перейдем к обновлению зависимостей Liferay для функционирования портлета. Открываем в любом редакторе кода (IDE) файл `build.gradle` и вставляем следующий код:
 
@@ -180,58 +180,58 @@ module.exports = exports;
 const NAME_PORTLET = "index";
 
 module.exports = {
-  entry: {
-    app: SRC + '/' + NAME_PORTLET + '.jsx'
-  },
-  resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx'],
-  },
-  output: {
-    path: DEST,
-    filename: NAME_PORTLET + '.js'
-  },
-  module: {
-    rules: [
-      {
-        test: /\.(js|jsx|ts|tsx)$/,
-        include: SRC,
-        use: ['babel-loader'],
-        exclude: path.resolve(__dirname, "node_modules")
-      },
-      {
-        test: /\.(css|scss)$/,
-        loader: "style-loader!css-loader"
-      },
-      {test: /\.(s[ca]ss)$/,
-        use: ['style-loader', 'css-loader', 'sass-loader', {
-          loader: "postcss-loader",
-          options: {
-            postcssOptions: {
-              plugins: [
-                [
-                  "postcss-preset-env",
-                  {
-                    // Options
-                  },
-                ],
-              ],
+    entry: {
+        app: SRC + '/' + NAME_PORTLET + '.jsx'
+    },
+    resolve: {
+        extensions: ['.ts', '.tsx', '.js', '.jsx'],
+    },
+    output: {
+        path: DEST,
+        filename: NAME_PORTLET + '.js'
+    },
+    module: {
+        rules: [
+            {
+                test: /\.(js|jsx|ts|tsx)$/,
+                include: SRC,
+                use: ['babel-loader'],
+                exclude: path.resolve(__dirname, "node_modules")
             },
-          },
-        }]
-      },
-      {test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/, use: ['url?limit=10000&amp;mimetype=application/font-woff']},
-      {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, use: ['url?limit=10000&amp;mimetype=application/octet-stream']},
-      {test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, use: ['file']},
-      {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, use: ['url?limit=10000&amp;mimetype=image/svg+xml']}
+            {
+                test: /\.(css|scss)$/,
+                loader: "style-loader!css-loader"
+            },
+            {test: /\.(s[ca]ss)$/,
+                use: ['style-loader', 'css-loader', 'sass-loader', {
+                    loader: "postcss-loader",
+                    options: {
+                        postcssOptions: {
+                            plugins: [
+                                [
+                                    "postcss-preset-env",
+                                    {
+                                        // Options
+                                    },
+                                ],
+                            ],
+                        },
+                    },
+                }]
+            },
+            {test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/, use: ['url?limit=10000&amp;mimetype=application/font-woff']},
+            {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, use: ['url?limit=10000&amp;mimetype=application/octet-stream']},
+            {test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, use: ['file']},
+            {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, use: ['url?limit=10000&amp;mimetype=image/svg+xml']}
+        ]
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: './app/index.html',
+            filename: 'index.html',
+            inject: 'body'
+        })
     ]
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: './app/index.html',
-      filename: 'index.html',
-      inject: 'body'
-    })
-  ]
 };
 ```
 
@@ -260,7 +260,7 @@ module.exports = {
     <style></style>
 </head>
 <body>
-    <div id="input"></div>
+<div id="input"></div>
 </body>
 </html>
 ```
@@ -300,7 +300,7 @@ ReactDOM.render(
 <%@ include file="init.jsp" %>
 
 <div id="input"></div>
-<script src="<%=request.getContextPath()%>/js/app.js"></script>
+<script src="<%=request.getContextPath()%>/js/index.js"></script>
 
 <portlet:resourceURL var="downloadURL">
     <portlet:param name="file_id" value="id" />
@@ -323,7 +323,7 @@ gradlew clean build
 ```
 
 Gradle собирает проект в `war` архив, который уже сейчас можно выгрузить на сервер и увидеть результат. На экране отобразится надпись Привет, Алиса.
-Данный способ позволяет создать портлет и добавить в него не сложное React приложение. Я не советую таким образом проводить разработку, т.к. запуск самого реак приложения из портлета произвести не возможно и придется отдельно разрабатывать приложение и потом его добавлять в портлет и заново собирать. Для облегчения технологии разработки и сборки портлета требуется выполнить действия описанные в пункте 5 и далее. 
+Данный способ позволяет создать портлет и добавить в него не сложное React приложение. Я не советую таким образом проводить разработку, т.к. запуск самого реак приложения из портлета произвести не возможно и придется отдельно разрабатывать приложение и потом его добавлять в портлет и заново собирать. Для облегчения технологии разработки и сборки портлета требуется выполнить действия описанные в пункте 5 и далее.
 
 ### 5. Создание React приложения и импорт его в портлет.
 
@@ -342,7 +342,7 @@ npx create-react-app my-app --template typescript
 #### 5.2. Настройка приложения.
 После создания приложения либо если у вас уже есть готовое приложение, которое требуется сделать портлетом, выполним настройку.
 
-Первым делом добавим в корень приложения созданный в пункте 4 портлет (архив с расширением .war). 
+Первым делом добавим в корень приложения созданный в пункте 4 портлет (архив с расширением .war).
 Теперь создадим в корне приложения файл `webpack.config.js`. В нем будут находиться все настройки для сборки проекта.
 
 ```js
@@ -400,13 +400,13 @@ module.exports = {
 
 ```json
 "dependencies": {
-    "webpack": "^5.73.0",
-    "webpack-cli": "^4.10.0",
-    "ts-loader": "^9.3.1",
+"webpack": "^5.73.0",
+"webpack-cli": "^4.10.0",
+"ts-loader": "^9.3.1",
 },
 "devDependencies": {
-    "file-loader": "^6.2.0",
-    "url-loader": "^4.1.1"
+"file-loader": "^6.2.0",
+"url-loader": "^4.1.1"
 }
 ```
 
@@ -416,11 +416,11 @@ module.exports = {
 
 ```json
 "scripts": {
-    "start": "react-scripts start",
-    "build": "webpack",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
+"start": "react-scripts start",
+"build": "webpack",
+"test": "react-scripts test",
+"eject": "react-scripts eject"
+},
 ```
 
 ### 6. Сборка приложения и выгрузка портлета.
@@ -499,11 +499,11 @@ ssh-add "C:\Users\user\.ssh\id_rsa"
 ---
 ###### Ссылки:
 
- * [Git разработчика](https://github.com/Allorion)
- * [Сайт разработчика](https://allorion.ru)
- * [Liferay Portal IDE](https://sourceforge.net/projects/lportal/files/Liferay%20IDE/)
- * [Liferay](https://www.liferay.com/)
- * [React JS](https://reactjs.org/)
- * [Настройка SSH-Agent Windows]( https://docs.microsoft.com/ru-ru/windows-server/administration/openssh/openssh_keymanagement)
+* [Git разработчика](https://github.com/Allorion)
+* [Сайт разработчика](https://allorion.ru)
+* [Liferay Portal IDE](https://sourceforge.net/projects/lportal/files/Liferay%20IDE/)
+* [Liferay](https://www.liferay.com/)
+* [React JS](https://reactjs.org/)
+* [Настройка SSH-Agent Windows]( https://docs.microsoft.com/ru-ru/windows-server/administration/openssh/openssh_keymanagement)
 
 @by Allori 2022
